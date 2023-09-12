@@ -1,4 +1,4 @@
-let gridSize = 50;
+let gridSize = 37.5;
 let gridResolution = 16;
 let gridContainer = document.getElementById("gridContainer");
 let currentGridText = document.getElementById("currentGridText");
@@ -34,9 +34,9 @@ function hoverOnGrid(event){
         //HSL used instead of RGB to avoid greys, we want bright rainbow colors with only one random variable
     }else{
         gridDiv.style.backgroundColor = "black";
+        console.log("changed");
     }
 
-    console.log(gridDiv);
 }
 
 function setGridResolution(){
