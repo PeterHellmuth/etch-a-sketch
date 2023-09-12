@@ -1,9 +1,11 @@
 let gridSize = 37.5;
 let gridResolution = 16;
+const BASE_RESOLUTION = 600;
 let gridContainer = document.getElementById("gridContainer");
 let currentGridText = document.getElementById("currentGridText");
 let rainbowMode = false;
 let rainbowButton = document.getElementById("rainbowButton");
+gridContainer.addEventListener("touchstart",touchStarted);
 
 createGrid();
 
@@ -39,6 +41,10 @@ function hoverOnGrid(event){
 
 }
 
+function touchStarted(){
+
+}
+
 function setGridResolution(){
     let newResolution = Number(prompt("Please enter a new resolution between 1 and 100"));
     
@@ -46,7 +52,7 @@ function setGridResolution(){
     if(typeof newResolution == "number" && newResolution > 0 && newResolution < 101){
         console.log(typeof newResolution);
         gridResolution = newResolution;
-        gridSize = 800/gridResolution;
+        gridSize = BASE_RESOLUTION/gridResolution;
         currentGridText.innerText = `Current grid is ${newResolution}x${newResolution}`;
         createGrid();
     } else{
