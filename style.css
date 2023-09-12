@@ -10,11 +10,17 @@
 .controlPanel{
     width: 600px;
     margin-left: auto;
-    margin-right: auto;
-    margin-top: 100px;
+    margin-right: auto; 
     margin-bottom: 20px;
 }
 
 button{
     padding: 10px;
+}
+
+h1{
+    margin: auto;
+    width: 600px;
+    margin-top: 50px;
+    margin-bottom: 20px;
 }
