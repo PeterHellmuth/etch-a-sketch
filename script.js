@@ -2,6 +2,8 @@ let gridSize = 50;
 let gridResolution = 16;
 let gridContainer = document.getElementById("gridContainer");
 let currentGridText = document.getElementById("currentGridText");
+let rainbowMode = false;
+let rainbowButton = document.getElementById("rainbowButton");
 
 createGrid();
 
@@ -17,7 +19,6 @@ function createGrid(){
             div.style.width = `${gridSize}px`;
             div.style.height = `${gridSize}px`;
             div.classList.add("grid");
-            //div.style.backgroundColor = "black";
             div.addEventListener("mouseover", hoverOnGrid);
             gridContainer.appendChild(div);
         }
@@ -27,7 +28,14 @@ function createGrid(){
 
 function hoverOnGrid(event){
     let gridDiv = event.target;
-    gridDiv.style.backgroundColor = "black";
+    if(rainbowMode){
+        let hue = Math.floor(Math.random() * (359)) ;
+        gridDiv.style.backgroundColor = `hsl(${hue},100%,50%)`;
+        //HSL used instead of RGB to avoid greys, we want bright rainbow colors with only one random variable
+    }else{
+        gridDiv.style.backgroundColor = "black";
+    }
+
     console.log(gridDiv);
 }
 
@@ -45,3 +53,14 @@ function setGridResolution(){
         alert("Invalid input");
     }
 }
+
+function toggleRainbowMode(){
+    if(rainbowMode){
+        rainbowButton.style.removeProperty("background-color");
+        rainbowMode = false;
+    } else{
+        rainbowButton.style.backgroundColor = "pink";
+        rainbowMode = true;
+    }
+}
+
